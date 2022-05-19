@@ -14,21 +14,21 @@
 %  You should have received a copy of the GNU General Public License along
 %  with this program; if not, write to the Free Software Foundation, Inc.,
 %  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-%  -------------------------------------------------------------------------------------------
+%  -----------------------------------------------------------------------------
 %
 %  Allow for defining some meta data and simple textual notes for use
 %  with the pdfpc presentation application <https://pdfpc.github.io>.
 %
-%  -------------------------------------------------------------------------------------------
+%  -----------------------------------------------------------------------------
 %
 %  Inspired by Carsten Brandt's <https://github.com/cebe/pdfpc-latex-notes>.
 %
-%  -------------------------------------------------------------------------------------------
+%  -----------------------------------------------------------------------------
 %
 %  Please report bugs and other problems as well as suggestions for improvements
 %  to the issue tracker at github <https://github.com/pdfpc/pdfpc/>
 %
-%  -------------------------------------------------------------------------------------------
+%  -----------------------------------------------------------------------------
 \documentclass[11pt]{ltxdoc}
 
 \usepackage{iftex}
@@ -38,10 +38,12 @@
 \usepackage{hyperref}
 
 \newcommand*{\sty}[1]{\textsf{#1}}
-\def\param#1{\textit{\rmfamily\mdseries\ensuremath{\langle}#1\ensuremath{\rangle}}}
+\def\param#1%
+{\textit{\rmfamily\mdseries\ensuremath{\langle}#1\ensuremath{\rangle}}}
 
 
-\title{The \sty{pdfpc} package \\ {\large\url{https://github.com/pdfpc/latex-pdfpc}}}
+\title{The \sty{pdfpc} package \\
+       {\large\url{https://github.com/pdfpc/latex-pdfpc}}}
 \author{Evgeny Stambulchik}
 \date{2021/02/06 (v0.6.0)}
 
@@ -52,8 +54,8 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-This package provides  a convenient way to specify notes and to define certain
-meta  properties  of the  presentation when used with
+This package provides a convenient way to specify notes and to define certain
+meta properties of the presentation when used with
 \href{https://pdfpc.github.io/}{PDF Presenter Console (\texttt{pdfpc}), a
 GPLv3+ licensed multi-monitor PDF presentation viewer application available on
 GitHub}\footnote{\url{https://pdfpc.github.io/}}.
@@ -72,7 +74,7 @@ kvoptions \\ xstring \\ iftex \\ hyperxmp
 
 \section*{License}
 
-\textcopyright\ 2020-2021 Evgeny Stambulchik
+\textcopyright\ 2020--2022 Evgeny Stambulchik
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
