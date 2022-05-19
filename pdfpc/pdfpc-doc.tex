@@ -92,9 +92,10 @@ This work consists of the following files:
 \part{The documentation}
 \section*{Loading \sty{pdfpc}}
 
-Load \sty{pdfpc} by adding \cmd{\usepackage\{pdfpc\}} to your preamble.
+Load \sty{pdfpc} by adding \cmd{\usepackage[\param{options}]\{pdfpc\}} to your
+preamble.
 
-The following \param{options} may be given as comma-separated list:
+The following options may be given as comma-separated list:
 
 \begin{itemize}
 \item \texttt{duration}
@@ -109,7 +110,7 @@ The following \param{options} may be given as comma-separated list:
 \end{itemize}
 
 Alternatively, the options can be set using the \cmd{\pdfpcsetup} command
-like \cmd{\pdfpcsetup\{<option1=value1>[,~\ldots]\}}.
+like \cmd{\pdfpcsetup\{\param{option1=value1}[,~\ldots]\}}.
 The meaning and possible values of most of these options are documented in
 \textit{pdfpcrc(5)} man page of the pdfpc program. The rest are explained below.
 
