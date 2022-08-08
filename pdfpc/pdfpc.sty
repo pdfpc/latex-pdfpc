@@ -38,6 +38,10 @@
 \RequirePackage{xstring}
 \RequirePackage{iftex}
 \RequirePackage{hyperxmp}
+\ifLuaTeX
+  \RequirePackage{stringenc}
+  \RequirePackage{pdftexcmds}
+\fi
 %
 \SetupKeyvalOptions{
   family=PDFPC,
@@ -167,18 +171,32 @@ ______</rdf:Description>^^J%
   \else%
     \ifLuaTeX%
       \protected\def\pdfannot {\pdfextension annot }%
-    \fi%
-    \newcommand{\pdfpcnote}[1]{%
-      {%
-        \edef\\{\string\n}%
-        \pdfannot width 0pt height 0pt depth 0pt {%
-           /Subtype /Text%
-           /Contents (#1)%
-           /F 6%
+      \newcommand{\pdfpcnote}[1]{%
+        \edef\tmp@a{\pdf@escapehexnative{#1}}
+        \expandafter\SE@ConvertFrom\expandafter\tmp@a\expandafter{\tmp@a}{utf8}
+        {%
+          \edef\\{\string\n}%
+          \pdfannot width 0pt height 0pt depth 0pt {%
+             /Subtype /Text%
+             /Contents <FEFF\tmp@a>%
+             /F 6%
+          }%
         }%
+        \relax%
       }%
-      \relax%
-    }%
+    \else%
+      \newcommand{\pdfpcnote}[1]{%
+        {%
+          \edef\\{\string\n}%
+          \pdfannot width 0pt height 0pt depth 0pt {%
+             /Subtype /Text%
+             /Contents (#1)%
+             /F 6%
+          }%
+        }%
+        \relax%
+      }%
+    \fi%
   \fi%
 \fi%
 %

@@ -12,6 +12,10 @@ console (pdfpc) program.
 [`iftex`](https://ctan.org/pkg/iftex),
 [`hyperxmp`](https://ctan.org/pkg/hyperxmp)
 
+When using LuaTeX, it additionally depends on these packages:
+[`stringenc`](https://ctan.org/pkg/stringenc)
+[`pdftexcmds`](https://ctan.org/pkg/pdftexcmds)
+
 ## Usage
 
 It's best to read the [`pdfpc`](https://github.com/pdfpc/pdfpc) documentation
