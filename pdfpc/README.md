@@ -13,7 +13,7 @@ console (pdfpc) program.
 [`hyperxmp`](https://ctan.org/pkg/hyperxmp)
 
 When using LuaTeX, it additionally depends on these packages:
-[`stringenc`](https://ctan.org/pkg/stringenc)
+[`stringenc`](https://ctan.org/pkg/stringenc),
 [`pdftexcmds`](https://ctan.org/pkg/pdftexcmds)
 
 ## Usage
