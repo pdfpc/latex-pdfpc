@@ -10,10 +10,10 @@ console (pdfpc) program.
 [`kvoptions`](https://ctan.org/pkg/kvoptions),
 [`xstring`](https://ctan.org/pkg/xstring),
 [`iftex`](https://ctan.org/pkg/iftex),
-[`hyperxmp`](https://ctan.org/pkg/hyperxmp)
+[`hyperxmp`](https://ctan.org/pkg/hyperxmp),
+[`stringenc`](https://ctan.org/pkg/stringenc)
 
-When using LuaTeX, it additionally depends on these packages:
-[`stringenc`](https://ctan.org/pkg/stringenc),
+When using LuaTeX, it additionally depends on these package
 [`pdftexcmds`](https://ctan.org/pkg/pdftexcmds)
 
 ## Usage
