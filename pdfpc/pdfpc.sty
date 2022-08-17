@@ -169,33 +169,33 @@ ______</rdf:Description>^^J%
       \relax%
     }%
   \else%
-    \def\insert@linebreaks@in@hex#1#2#3#4#5\hex@terminator{%
+    \def\pdfpc@hexnewlines#1#2#3#4#5\pdfpc@@end{%
       \if\relax\detokenize{#5}\relax
         #1#2#3#4%
       \else
         \ifnum"#1#2>"D7
           \ifnum"#1#2<"E0
-            #1#2#3#4\insert@linebreaks@in@hex@nonbmp#5\hex@terminator
+            #1#2#3#4\pdfpc@hexnewlines@nonbmp#5\pdfpc@@end
           \else
-            #1#2#3#4\insert@linebreaks@in@hex#5\hex@terminator
+            #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
           \fi
         \else
           \ifnum"#1#2#3#4="005C
-            \insert@linebreaks@in@hex@afterbs#5\hex@terminator
+            \pdfpc@hexnewlines@afterbs#5\pdfpc@@end
           \else
-            #1#2#3#4\insert@linebreaks@in@hex#5\hex@terminator
+            #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
           \fi
         \fi
       \fi
     }
-    \def\insert@linebreaks@in@hex@nonbmp#1#2#3#4#5\hex@terminator{%
+    \def\pdfpc@hexnewlines@nonbmp#1#2#3#4#5\pdfpc@@end{%
       \if\relax\detokenize{#5}\relax
         #1#2#3#4%
       \else
-        #1#2#3#4\insert@linebreaks@in@hex#5\hex@terminator
+        #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
       \fi
     }
-    \def\insert@linebreaks@in@hex@afterbs#1#2#3#4#5\hex@terminator{%
+    \def\pdfpc@hexnewlines@afterbs#1#2#3#4#5\pdfpc@@end{%
       \if\relax\detokenize{#5}\relax
         \ifnum"#1#2#3#4="005C
           000A%
@@ -205,15 +205,15 @@ ______</rdf:Description>^^J%
       \else
         \ifnum"#1#2>"D7
           \ifnum"#1#2<"E0
-            #1#2#3#4\insert@linebreaks@in@hex@nonbmp#5\hex@terminator
+            #1#2#3#4\pdfpc@hexnewlines@nonbmp#5\pdfpc@@end
           \else
-            #1#2#3#4\insert@linebreaks@in@hex#5\hex@terminator
+            #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
           \fi
         \else
           \ifnum"#1#2#3#4="005C
-            000A\insert@linebreaks@in@hex#5\hex@terminator
+            000A\pdfpc@hexnewlines#5\pdfpc@@end
           \else
-            005C#1#2#3#4\insert@linebreaks@in@hex#5\hex@terminator
+            005C#1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
           \fi
         \fi
       \fi
@@ -227,7 +227,7 @@ ______</rdf:Description>^^J%
         {%
           \pdfannot width 0pt height 0pt depth 0pt {%
              /Subtype /Text%
-             /Contents <\expandafter\insert@linebreaks@in@hex\tmp@a\hex@terminator>%
+             /Contents <\expandafter\pdfpc@hexnewlines\tmp@a\pdfpc@@end>%
              /F 6%
           }%
         }%
