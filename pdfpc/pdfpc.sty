@@ -173,26 +173,11 @@ ______</rdf:Description>^^J%
       \if\relax\detokenize{#5}\relax
         #1#2#3#4%
       \else
-        \ifnum"#1#2>"D7
-          \ifnum"#1#2<"E0
-            #1#2#3#4\pdfpc@hexnewlines@nonbmp#5\pdfpc@@end
-          \else
-            #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
-          \fi
+        \ifnum"#1#2#3#4="005C
+          \pdfpc@hexnewlines@afterbs#5\pdfpc@@end
         \else
-          \ifnum"#1#2#3#4="005C
-            \pdfpc@hexnewlines@afterbs#5\pdfpc@@end
-          \else
-            #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
-          \fi
+          #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
         \fi
-      \fi
-    }
-    \def\pdfpc@hexnewlines@nonbmp#1#2#3#4#5\pdfpc@@end{%
-      \if\relax\detokenize{#5}\relax
-        #1#2#3#4%
-      \else
-        #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
       \fi
     }
     \def\pdfpc@hexnewlines@afterbs#1#2#3#4#5\pdfpc@@end{%
@@ -203,18 +188,10 @@ ______</rdf:Description>^^J%
           005C#1#2#3#4%
         \fi
       \else
-        \ifnum"#1#2>"D7
-          \ifnum"#1#2<"E0
-            #1#2#3#4\pdfpc@hexnewlines@nonbmp#5\pdfpc@@end
-          \else
-            #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
-          \fi
+        \ifnum"#1#2#3#4="005C
+          000A\pdfpc@hexnewlines#5\pdfpc@@end
         \else
-          \ifnum"#1#2#3#4="005C
-            000A\pdfpc@hexnewlines#5\pdfpc@@end
-          \else
-            005C#1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
-          \fi
+          005C#1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
         \fi
       \fi
     }
