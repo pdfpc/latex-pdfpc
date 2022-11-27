@@ -38,8 +38,8 @@
 \RequirePackage{xstring}
 \RequirePackage{iftex}
 \RequirePackage{hyperxmp}
+\RequirePackage{stringenc}
 \ifLuaTeX
-  \RequirePackage{stringenc}
   \RequirePackage{pdftexcmds}
 \fi
 %
@@ -169,16 +169,42 @@ ______</rdf:Description>^^J%
       \relax%
     }%
   \else%
+    \def\pdfpc@hexnewlines#1#2#3#4#5\pdfpc@@end{%
+      \if\relax\detokenize{#5}\relax
+        #1#2#3#4%
+      \else
+        \ifnum"#1#2#3#4="005C
+          \pdfpc@hexnewlines@afterbs#5\pdfpc@@end
+        \else
+          #1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
+        \fi
+      \fi
+    }
+    \def\pdfpc@hexnewlines@afterbs#1#2#3#4#5\pdfpc@@end{%
+      \if\relax\detokenize{#5}\relax
+        \ifnum"#1#2#3#4="005C
+          000A%
+        \else
+          005C#1#2#3#4%
+        \fi
+      \else
+        \ifnum"#1#2#3#4="005C
+          000A\pdfpc@hexnewlines#5\pdfpc@@end
+        \else
+          005C#1#2#3#4\pdfpc@hexnewlines#5\pdfpc@@end
+        \fi
+      \fi
+    }
     \ifLuaTeX%
       \protected\def\pdfannot {\pdfextension annot }%
       \newcommand{\pdfpcnote}[1]{%
         \edef\tmp@a{\pdf@escapehexnative{#1}}
         \expandafter\SE@ConvertFrom\expandafter\tmp@a\expandafter{\tmp@a}{utf8}
+        \edef\tmp@a{FEFF\tmp@a}
         {%
-          \edef\\{\string\n}%
           \pdfannot width 0pt height 0pt depth 0pt {%
              /Subtype /Text%
-             /Contents <FEFF\tmp@a>%
+             /Contents <\expandafter\pdfpc@hexnewlines\tmp@a\pdfpc@@end>%
              /F 6%
           }%
         }%
