@@ -82,10 +82,10 @@
 %
 \ifPDFPC@overridenote
   \renewcommand<>{\note}[2][]{%
-    \only#3{\IfStrEq{#1}{item}%
+    \IfStrEq{#1}{item}%
       % Imitate a bullet
-      {\pdfpcnote{* #2}}%
-      {\pdfpcnote{#2}}}%
+      {\pdfpcnote#3{* #2}}%
+      {\pdfpcnote#3{#2}}%
   }%
 \fi
 %
