@@ -46,7 +46,7 @@ The following is a simple LaTeX document demonstrating a few example features:
 
 % The usual Beamer document setup
 \title{\texttt{pdfpc} Example Presentation}
-\author{LRitzdorf}
+\author{\texttt{pdfpc} Contributors}
 \institute{GitHub}
 \date{\today}
 
