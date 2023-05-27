@@ -30,7 +30,7 @@ slide transitions, and speaker notes, to be specified within the metadata of the
 PDF itself, instead of via the command line. These settings are parsed by the
 PDF Presenter Console when the presentation is loaded.
 
-These parameters can be specified as package options, and/or via the `\pdfpcsetup` command.
+These parameters can be specified as package options, or via the `\pdfpcsetup` command.
 
 The following is a simple LaTeX document demonstrating a few example features:
 
