@@ -108,23 +108,31 @@ This work consists of the following files:
 \section*{Loading \sty{pdfpc}}
 
 Load \sty{pdfpc} by adding \cmd{\usepackage[\param{options}]\{pdfpc\}} to your preamble.
-
 The following options may be given as comma-separated list:
 
-\begin{itemize}
-    \item \texttt{duration}
-    \item \texttt{starttime}
-    \item \texttt{endtime}
-    \item \texttt{enduserslide}
-    \item \texttt{lastminutes}
-    \item \texttt{hidenotes}
-    \item \texttt{notesposition}
-    \item \texttt{overridenote}
-    \item \texttt{disablemarkdown}
-    \item \texttt{defaulttransition} (needs pdfpc v4.5 or higher)
-\end{itemize}
+\begin{table}[h]
+\centering
+\begin{tabular}{ l l }
+    \hline
+    Package option & Equivalent \texttt{pdfpc} feature \\
+    \hline
+    \texttt{duration}          & \texttt{--duration} \\
+    \texttt{starttime}         & \texttt{--start-time} \\
+    \texttt{endtime}           & \texttt{--end-time} \\
+    \texttt{lastminutes}       & \texttt{--last-minutes} \\
+    \texttt{enduserslide}      & Ctrl+e keybind \\
+    \texttt{notesposition}     & \texttt{--notes} \\
+    \texttt{disablemarkdown}   & \texttt{--note-format} \\
+    \texttt{hidenotes}         & \\
+    \texttt{overridenote}      & \\
+    \texttt{defaulttransition} & \texttt{--page-transition} (\texttt{pdfpc} v4.5 or later) \\
+    \hline
+\end{tabular}
+\end{table}
 
-Alternatively, the options can be set using the \cmd{\pdfpcsetup} command like \cmd{\pdfpcsetup\{\param{option1=value1}[,~\ldots]\}} (except \texttt{overridenote}, which only works as a proper package option).
+Options should be given as a comma-separated list.
+All options, aside from \texttt{overridenote}, can alternatively be set via a command of the form \cmd{\pdfpcsetup\{\param{option1=value1}[,~\ldots]\}}.
+
 The meaning and possible values of most of these options are documented in the \textit{pdfpc(1)} man page, provided by the \texttt{pdfpc} program.
 The rest are explained below.
 
