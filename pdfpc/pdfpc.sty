@@ -82,10 +82,10 @@
 %
 \ifPDFPC@overridenote
   \renewcommand<>{\note}[2][]{%
-    \only#3{\IfStrEq{#1}{item}%
+    \IfStrEq{#1}{item}%
       % Imitate a bullet
-      {\pdfpcnote{* #2}}%
-      {\pdfpcnote{#2}}}%
+      {\pdfpcnote#3{* #2}}%
+      {\pdfpcnote#3{#2}}%
   }%
 \fi
 %
@@ -152,11 +152,11 @@ ______</rdf:Description>^^J%
 %
 % Note command
 \ifPDFPC@hidenotes%
-  \newcommand{\pdfpcnote}[1]{}%
+  \newcommand<>{\pdfpcnote}[1]{}%
 \else%
   \ifXeTeX%
-    \newcommand{\pdfpcnote}[1]{%
-      {%
+    \newcommand<>{\pdfpcnote}[1]{%
+      \only#2{%
         \edef\\{\string\n}%
         \special{pdf: ann width 0pt height 0pt depth 0pt%
            <<%
@@ -171,22 +171,24 @@ ______</rdf:Description>^^J%
   \else%
     \ifLuaTeX%
       \protected\def\pdfannot {\pdfextension annot }%
-      \newcommand{\pdfpcnote}[1]{%
-        \edef\tmp@a{\pdf@escapehexnative{#1}}
-        \expandafter\SE@ConvertFrom\expandafter\tmp@a\expandafter{\tmp@a}{utf8}
-        {%
-          \edef\\{\string\n}%
-          \pdfannot width 0pt height 0pt depth 0pt {%
-             /Subtype /Text%
-             /Contents <FEFF\tmp@a>%
-             /F 6%
+      \newcommand<>{\pdfpcnote}[1]{%
+        \only#2{%
+          \edef\tmp@a{\pdf@escapehexnative{#1}}
+          \expandafter\SE@ConvertFrom\expandafter\tmp@a\expandafter{\tmp@a}{utf8}
+          {%
+            \edef\\{\string\n}%
+            \pdfannot width 0pt height 0pt depth 0pt {%
+               /Subtype /Text%
+               /Contents <FEFF\tmp@a>%
+               /F 6%
+            }%
           }%
         }%
         \relax%
       }%
     \else%
-      \newcommand{\pdfpcnote}[1]{%
-        {%
+      \newcommand<>{\pdfpcnote}[1]{%
+        \only#2{%
           \edef\\{\string\n}%
           \pdfannot width 0pt height 0pt depth 0pt {%
              /Subtype /Text%
