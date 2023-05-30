@@ -114,18 +114,18 @@ The following options may be given as comma-separated list:
 \centering
 \begin{tabular}{ l l }
     \hline
-    Package option & Equivalent \texttt{pdfpc} feature \\
+    Package option & Equivalent \texttt{pdfpc} flag \\
     \hline
-    \texttt{duration}          & \texttt{--duration} \\
-    \texttt{starttime}         & \texttt{--start-time} \\
-    \texttt{endtime}           & \texttt{--end-time} \\
-    \texttt{lastminutes}       & \texttt{--last-minutes} \\
-    \texttt{enduserslide}      & Ctrl+e keybind \\
-    \texttt{notesposition}     & \texttt{--notes} \\
-    \texttt{disablemarkdown}   & \texttt{--note-format} \\
-    \texttt{hidenotes}         & \\
-    \texttt{overridenote}      & \\
-    \texttt{defaulttransition} & \texttt{--page-transition} (\texttt{pdfpc} v4.5 or later) \\
+    \texttt{duration=\textit{value}}          & \texttt{--duration=\textit{value}} \\
+    \texttt{starttime=\textit{value}}         & \texttt{--start-time=\textit{value}} \\
+    \texttt{endtime=\textit{value}}           & \texttt{--end-time=\textit{value}} \\
+    \texttt{lastminutes=\textit{value}}       & \texttt{--last-minutes=\textit{value}} \\
+    \texttt{enduserslide=\textit{value}}      & \\
+    \texttt{notesposition=\textit{value}}     & \texttt{--notes=\textit{value}} \\
+    \texttt{disablemarkdown}                  & \texttt{--note-format=plain} \\
+    \texttt{hidenotes}                        & \\
+    \texttt{overridenote}                     & \\
+    \texttt{defaulttransition=\textit{value}} & \texttt{--page-transition=\textit{value}} \\
     \hline
 \end{tabular}
 \end{table}
@@ -151,6 +151,9 @@ To override the autodetection, use the \texttt{notesposition} option, accepting 
 
 When sharing slides, one may want to omit the (potentially private) notes, by using the \texttt{hidenotes} option.
 Enabling it will disable notes, including Beamer notes if \texttt{overridenote} was specified.
+
+Finally, be aware that some features are unsupported by old versions of the \texttt{pdfpc} console.
+In particular, the \texttt{defaulttransition} option requires version 4.5 or later.
 
 \StopEventually{%
     \clearpage
