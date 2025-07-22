@@ -173,8 +173,8 @@ ______</rdf:Description>^^J%
       \protected\def\pdfannot {\pdfextension annot }%
       \newcommand<>{\pdfpcnote}[1]{%
         \only#2{%
-          \edef\tmp@a{\pdf@escapehexnative{#1}}
-          \expandafter\SE@ConvertFrom\expandafter\tmp@a\expandafter{\tmp@a}{utf8}
+          \edef\tmp@a{\pdf@escapehexnative{#1}}%
+          \expandafter\SE@ConvertFrom\expandafter\tmp@a\expandafter{\tmp@a}{utf8}%
           {%
             \edef\\{\string\n}%
             \pdfannot width 0pt height 0pt depth 0pt {%
